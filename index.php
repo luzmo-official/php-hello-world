@@ -2,9 +2,10 @@
 require 'vendor/autoload.php';
 use Cumulio\Cumulio;
 
+header('Content-Type: application/json');
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-
 $client = Cumulio::initialize($_ENV['CUMUL_KEY'], $_ENV['CUMUL_TOKEN'], 'https://api.cumul.io');
 
 $authorization = $client->create('authorization', array(
@@ -18,4 +19,6 @@ $authorization = $client->create('authorization', array(
   'suborganization' => '< user suborganization >',
   'role' => 'viewer'
 ));
+
+echo json_encode($_ENV, JSON_PRETTY_PRINT)
 ?>
