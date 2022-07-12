@@ -37,7 +37,7 @@ jobs:
       - name: Zip File
         run: |
           rm -rf php-hello-world.zip
-          zip -r php-hello-world.zip * .env.example .git
+          zip -r php-hello-world.zip * .env.example .git .gitignore
 
       # Runs a set of commands using the runners shell
       - name: Upload an invalidate
