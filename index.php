@@ -3,6 +3,11 @@ require 'vendor/autoload.php';
 use Cumulio\Cumulio;
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: *');
+header('Content-Type: application/json');
+header("HTTP/1.1 200 OK");
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
