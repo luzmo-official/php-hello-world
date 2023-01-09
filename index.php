@@ -9,6 +9,10 @@ header('Access-Control-Allow-Methods: *');
 header('Content-Type: application/json');
 header("HTTP/1.1 200 OK");
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {    
+  return 0;    
+} 
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 $client = Cumulio::initialize($_ENV['CUMUL_KEY'], $_ENV['CUMUL_TOKEN'], $_ENV['API_URL']);
